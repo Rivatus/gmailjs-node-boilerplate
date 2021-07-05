@@ -1,0 +1,25 @@
+{
+  "name": "gmailjs-node-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "node-main": "script-imports-builtins.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rivatus/gmailjs-node-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rivatus/gmailjs-node-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Rivatus/gmailjs-node-boilerplate#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "googleapis": "^80.1.0"
+  }
+}

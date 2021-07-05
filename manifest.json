@@ -1,28 +1,64 @@
 {
-    "manifest_version": 2,
-    "name": "GmailJS Node Boilerplate Extension",
-    "short_name": "gmailjsnode",
+    "manifest_version": 3,
+    "name": "GmailJS Testing Extension",
+    "short_name": "gmailjstest",
     "version": "1.0",
+    "oauth2": {
+        "client_id": "929501744323-c7as0qhnlnvmhu63ga6imvk2po77mhjm.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/userinfo.email",
+            "https://mail.google.com/"
+        ]
+    },
     "author": "Jostein Kjønigsen <jostein@kjonigsen.net>",
-
     "description": "A minimal extension which demonstrates how to create a extension with Gmail.JS and NodeJS-based bundling.",
-
+    "background": {
+        "service_worker": "background.js"
+    },
     "content_scripts": [
         {
-            "matches": [ "*://mail.google.com/*" ],
+            "all_frames": true,
+            "css": [
+                "css/gab.css"
+            ],
             "js": [
+                "js/jquery-1.8.1.min.js",
+                "js/a4gmail.js",
                 "src/extensionInjector.js"
             ],
-            "run_at": "document_start"
+            "matches": [
+                "https://mail.google.com/mail/*"
+            ],
+            "run_at": "document_end"
         }
     ],
-
+    "icons": {
+        "128": "icon/icon_128.png",
+        "16": "icon/icon_16.png",
+        "48": "icon/icon_48.png"
+    },
     "web_accessible_resources": [
-        "dist/gmailJsLoader.js",
-        "dist/extension.js"
+        {
+            "resources": [
+                "images/sprite-content-black.png",
+                "dist/gmailJsLoader.js",
+                "dist/extension.js"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
     ],
-
+    "options_page": "options.html",
     "permissions": [
-        "https://*/*"
+        "notifications",
+        "identity",
+        "identity.email",
+        "tabs",
+        "storage",
+        "scripting"
+    ],
+    "host_permissions": [
+        "*://*/"
     ]
 }

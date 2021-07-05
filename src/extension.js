@@ -17,7 +17,7 @@ function startExtension(gmail) {
 
     gmail.observe.on("load", () => {
         const userEmail = gmail.get.user_email();
-        console.log("Hello, " + userEmail + ". This is your extension talking!");
+        // console.log("Hello, " + userEmail + ". This is your extension talking!");
 
         gmail.observe.on("view_email", (domEmail) => {
             console.log("Looking at email:", domEmail);
